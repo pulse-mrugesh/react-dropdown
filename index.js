@@ -111,6 +111,13 @@ class Dropdown extends Component {
 
     const optionClass = classNames(classes)
 
+    let spanInlineStyle = option.spanInlineStyle
+    if (typeof spanInlineStyle === 'undefined') {
+      spanInlineStyle = {
+        display: 'none'
+      }
+    }
+
     return (
       <div
         key={value}
@@ -119,6 +126,7 @@ class Dropdown extends Component {
         onClick={this.setValue.bind(this, value, label)}
         role='option'
         aria-selected={isSelected ? 'true' : 'false'}>
+        <span style={spanInlineStyle}>{'\u00A0'}</span>
         {label}
       </div>
     )
